@@ -1,7 +1,7 @@
 /*
  * @Author: maggot-code
  * @Date: 2022-05-23 20:27:04
- * @LastEditors: zhangyang
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-07-15 16:08:52
  * @Description: file content
  */
@@ -10,7 +10,7 @@ const setupColor = ({ color }) => `rgba(${color.join(",")})`;
 function setupShapeSymbol(attr) {
     return {
         color: setupColor(attr),
-    }
+    };
 }
 function setupPolygonGridShape(result) {
     const { color: colorAll, features } = result;
@@ -26,9 +26,9 @@ function setupPolygonGridShape(result) {
                 color: setupColor({ color: defaultColor }), // 颜色
                 // opacity: 1.0 // 透明度
             },
-            callback: setupShapeSymbol
-        }
-    }
+            callback: setupShapeSymbol,
+        },
+    };
 }
 
 export function usePolygonGrid(mapview) {
@@ -36,6 +36,6 @@ export function usePolygonGrid(mapview) {
     // setupLegend
 
     return {
-        setupShape: setupPolygonGridShape
-    }
+        setupShape: setupPolygonGridShape,
+    };
 }

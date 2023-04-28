@@ -1,5 +1,5 @@
 /*
- * @Author: zhangyang
+ * @Author: zhangxin
  * @Date: 2022-06-01 14:53:02
  * @LastEditors: zhangxin
  * @LastEditTime: 2022-11-22 14:51:42
@@ -76,8 +76,7 @@ export function useScreenshot(mapview) {
         return setupImage(legendBinary, legendWidth, legendHeight);
     };
     const setupCanvas = () => {
-        const { screenMin, screenMax, canvasWidth, canvasHeight } =
-            unref(screenshot);
+        const { screenMin, screenMax, canvasWidth, canvasHeight } = unref(screenshot);
         const canvas = document.createElement("canvas");
         canvas.width = canvasWidth;
         canvas.height = canvasHeight;
@@ -96,14 +95,7 @@ export function useScreenshot(mapview) {
         URL.revokeObjectURL(link.href);
     };
     const setupScreenshotImage = async (download = false) => {
-        const {
-            screenMin,
-            screenMax,
-            canvasWidth,
-            canvasHeight,
-            legendWidth,
-            legendHeight,
-        } = unref(screenshot);
+        const { screenMin, screenMax, canvasWidth, canvasHeight, legendWidth, legendHeight } = unref(screenshot);
         const mapImage = await setupMapImage();
         const legendImage = await setupLegendImage();
         const { canvas, ctx } = setupCanvas();
@@ -114,26 +106,10 @@ export function useScreenshot(mapview) {
         ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
         // 绘制地图截图
-        ctx.drawImage(
-            mapImage,
-            screenMin[0] - 20,
-            screenMax[1] - 20,
-            canvasWidth + 40,
-            canvasHeight + 40,
-            0,
-            0,
-            canvasWidth,
-            canvasHeight
-        );
+        ctx.drawImage(mapImage, screenMin[0] - 20, screenMax[1] - 20, canvasWidth + 40, canvasHeight + 40, 0, 0, canvasWidth, canvasHeight);
 
         // 绘制图例截图
-        ctx.drawImage(
-            legendImage,
-            canvasWidth - legendWidth,
-            canvasHeight - legendHeight,
-            legendWidth,
-            legendHeight
-        );
+        ctx.drawImage(legendImage, canvasWidth - legendWidth, canvasHeight - legendHeight, legendWidth, legendHeight);
         const imageData = canvas.toDataURL("image/png");
         download && setupDownload(imageData);
         return imageData;

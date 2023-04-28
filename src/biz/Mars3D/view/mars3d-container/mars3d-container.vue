@@ -1,7 +1,7 @@
 <!--
- * @Author: zhangyang
+ * @Author: zhangxin
  * @Date: 2022-04-24 18:12:18
- * @LastEditors: zhangyang
+ * @LastEditors: zhangxin
  * @LastEditTime: 2023-03-09 13:17:50
  * @Description: file content
 -->
@@ -36,8 +36,7 @@ export default {
     },
     emit: ["onReady"],
     setup(props, ctx) {
-        const { isMounted, loading, loadStyle, mapbox, mapview } =
-            useMars3dSetup(props, ctx);
+        const { isMounted, loading, loadStyle, mapbox, mapview } = useMars3dSetup(props, ctx);
         useLayerSetup(props, mapview);
         const float = useFloatWindow();
 
@@ -50,7 +49,7 @@ export default {
             loadStyle,
             mapbox,
             mapview,
-            ...float
+            ...float,
         };
     },
 };

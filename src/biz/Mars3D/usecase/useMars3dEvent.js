@@ -1,7 +1,7 @@
 /*
- * @Author: zhangyang
+ * @Author: zhangxin
  * @Date: 2022-04-28 16:51:12
- * @LastEditors: zhangyang
+ * @LastEditors: zhangxin
  * @LastEditTime: 2023-03-04 10:55:19
  * @Description: file content
  */
@@ -20,13 +20,13 @@ export function useMars3dEvent(events) {
 
     const setupBind = (layer) => {
         layer.on(bindEventType, tobind);
-    }
+    };
     const revokeBind = (layer) => {
         layer.off(bindEventType, tobind);
-    }
+    };
 
     return {
         setupBind,
-        revokeBind
-    }
+        revokeBind,
+    };
 }

@@ -1,7 +1,7 @@
 /*
- * @Author: zhangyang
+ * @Author: zhangxin
  * @Date: 2022-04-26 17:47:31
- * @LastEditors: zhangyang
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-06-23 13:29:09
  * @Description: file content
  */
@@ -13,21 +13,14 @@ const handlerText = (cell) => {
     const [value, label] = cell;
     if (cell.length <= 1) return value;
 
-    return `${label}：${value}`
-}
+    return `${label}：${value}`;
+};
 export function createLabel(textSchema) {
     return textSchema.map(handlerText).join(`\n`);
 }
 
 export function setupShapeLabel(options) {
-    const {
-        text,
-        textColor,
-        textBgColor,
-        useBgColor,
-        offsetx,
-        offsety,
-    } = options;
+    const { text, textColor, textBgColor, useBgColor, offsetx, offsety } = options;
 
     return {
         text,
@@ -50,16 +43,11 @@ export function setupShapeLabel(options) {
         hasPixelOffset: true,
         pixelOffsetX: offsetx ?? 0,
         pixelOffsetY: offsety ?? -18,
-    }
+    };
 }
 
 export function setupPointShape(options) {
-    const {
-        longitude,
-        latitude,
-        text,
-        color,
-    } = options;
+    const { longitude, latitude, text, color } = options;
 
     const position = new LngLatPoint(longitude, latitude);
 
@@ -83,10 +71,10 @@ export function setupPointShape(options) {
 
     return {
         position,
-        style
-    }
+        style,
+    };
 }
 
 export function usePoint(mapview) {
-    return {}
+    return {};
 }

@@ -1,12 +1,12 @@
 /*
  * @FilePath: \3D防汛作战\src\biz\Mars3D\usecase\usePolyline.js
- * @Author: zhangyang
+ * @Author: zhangxin
  * @Date: 2022-05-19 11:02:21
- * @LastEditors: zhangyang
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-06-22 11:42:10
- * @Description: 
+ * @Description:
  */
-import {Cesium, MaterialUtil, MaterialType } from "mars3d";
+import { Cesium, MaterialUtil, MaterialType } from "mars3d";
 
 export function setupPolylineFillShape(options = {}) {
     const { color } = options;
@@ -22,25 +22,22 @@ export function setupPolylineFillShape(options = {}) {
         color: color ?? "rgba(30, 226, 242,0.8)",
         alpha: 0.8,
         highlight,
-    }
+    };
 
     return style;
 }
 
 export function setupLineFlowColorShape(options = {}) {
-    const {
-        color,
-        colorActive
-    } = options;
+    const { color, colorActive } = options;
 
     const highlight = {
         material: MaterialUtil.createMaterialProperty(MaterialType.LineFlowColor, {
-            color:colorActive,
+            color: colorActive,
             speed: 24,
             percent: 0.15,
-            alpha: 0.8
+            alpha: 0.8,
         }),
-    }
+    };
 
     const style = {
         width: 6,
@@ -49,20 +46,16 @@ export function setupLineFlowColorShape(options = {}) {
             color,
             speed: 18,
             percent: 0.15,
-            alpha: 0.6
+            alpha: 0.6,
         }),
-        highlight
-    }
+        highlight,
+    };
 
     return style;
 }
 
 export function setupPolylineImageShape(options = {}) {
-    const {
-        color,
-        colorActive,
-        image
-    } = options;
+    const { color, colorActive, image } = options;
 
     const highlight = {
         material: MaterialUtil.createMaterialProperty(MaterialType.LineFlow, {
@@ -85,22 +78,18 @@ export function setupPolylineImageShape(options = {}) {
         highlight,
     };
 
-    return style
+    return style;
 }
 
 export function setupWallLineShape(options = {}) {
-    const {
-        color,
-        colorActive,
-        image
-    } = options;
+    const { color, colorActive, image } = options;
 
     const highlight = {
         material: MaterialUtil.createMaterialProperty(MaterialType.LineFlow, {
             image,
-            color:colorActive,
+            color: colorActive,
             repeat: new Cesium.Cartesian2(20, 1),
-            speed: 24
+            speed: 24,
         }),
     };
 
@@ -110,14 +99,14 @@ export function setupWallLineShape(options = {}) {
             image,
             color,
             repeat: new Cesium.Cartesian2(20, 1),
-            speed: 12
+            speed: 12,
         }),
-        highlight
-    }
+        highlight,
+    };
 
     return style;
 }
 
 export function usePolyline(mapview) {
-    return {}
+    return {};
 }
