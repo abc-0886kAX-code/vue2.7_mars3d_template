@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-05-05 16:50:46
+ * @LastEditTime: 2023-05-05 17:08:04
  * @Description:
  */
 
@@ -48,7 +48,7 @@ const routes = [
         name: "404",
         path: "/404",
         meta: defineMeta({ title: "404" }),
-        component: () => import("@/pages/NotPage/404.vue"),
+        component: () => import("@/pages/NotPage/not-page.vue"),
     },
     {
         path: "*",
