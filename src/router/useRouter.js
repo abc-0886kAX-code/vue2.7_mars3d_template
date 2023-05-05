@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-04-12 11:28:34
+ * @LastEditTime: 2023-05-05 15:47:09
  * @Description:
  */
 
@@ -14,27 +14,37 @@ const routes = [
     {
         name: "login",
         path: "/login",
-        meta: defineMeta(),
+        meta: defineMeta({ title: "登录" }),
         component: () => import("@/layout/login/login.vue"),
     },
     {
         name: "singleLogin",
         path: "/singleLogin",
-        meta: defineMeta(),
+        meta: defineMeta({ title: "单点登录" }),
         component: () => import("@/layout/loginsso/loginsso.vue"),
     },
     {
         name: "debug",
         path: "/debug",
-        meta: defineMeta(),
+        meta: defineMeta({ title: "debug" }),
         component: () => import("@/pages/Debug/debug.vue"),
     },
     {
         name: "home",
         path: "/",
-        meta: defineMeta({ level: 0 }),
+        meta: defineMeta({ level: 0, title: "首页" }),
         component: () => import("@/layout/Home.vue"),
         children: [],
+    },
+    {
+        name: "404",
+        path: "/404",
+        meta: defineMeta({ title: "404" }),
+        component: () => import("@/pages/NotPage/404.vue"),
+    },
+    {
+        path: "*",
+        redirect: "/404",
     },
 ];
 const router = defineRouter(routes);
