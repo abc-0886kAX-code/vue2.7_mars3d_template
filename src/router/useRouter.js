@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-05-05 15:47:09
+ * @LastEditTime: 2023-05-05 16:50:46
  * @Description:
  */
 
@@ -30,11 +30,19 @@ const routes = [
         component: () => import("@/pages/Debug/debug.vue"),
     },
     {
-        name: "home",
+        name: "layout",
         path: "/",
-        meta: defineMeta({ level: 0, title: "首页" }),
+        redirect: "/home",
+        meta: defineMeta({ level: 0 }),
         component: () => import("@/layout/Home.vue"),
-        children: [],
+        children: [
+            {
+                path: "/home",
+                name: "home",
+                meta: defineMeta({ level: 1, title: "首页" }),
+                component: () => import("@/pages/home/home.vue"),
+            },
+        ],
     },
     {
         name: "404",
